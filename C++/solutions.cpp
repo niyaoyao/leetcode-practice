@@ -310,12 +310,7 @@ public:
         std::vector<int> sortedArray;
 
         sortArray(t, sortedArray);
-        // cout << "====== Finish Sort ======" << endl;
-        // for (std::vector<int>::iterator i = sortedArray.begin(); i != sortedArray.end(); ++i)
-        // {
-        //  cout << *i << " ";
-        // }
-
+        
         resault = medianOfSortedArray(sortedArray);
         return resault;
     }
