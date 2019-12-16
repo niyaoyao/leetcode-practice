@@ -3,6 +3,7 @@
 #include <vector>
 #include <set>
 #include "chapter1.h"
+#include "Algorithm.h"
 
 using namespace std;
 
@@ -18,6 +19,7 @@ void selectMenu() {
     cout << "2. SQRT" << endl;
     cout << "3. Hypotenuse" << endl;
     cout << "4. Binary Search" << endl;
+    cout << "5. ADT & Class" << endl;
     cout << "==================================\n" << endl;
     
     cin >> index;
@@ -60,6 +62,7 @@ void selectMenu() {
             cin >> b;
 
             cout << "The Hypotenuse of Triangle("<< a << "," << b <<") is " << ny_hypotenuse(a, b) << endl; 
+            break;
 
         }
         case 4: {
@@ -82,6 +85,14 @@ void selectMenu() {
             int b;
             cin >> b;
             cout << "Index Found: " << ny_rank(b, v0) << endl;
+            break;
+        }
+        case 5: {
+            Algorithm alg = Algorithm();
+            alg.printValue();
+            alg.setTest(2.33333);
+            alg.printValue();
+            break;
         }
         default: {
             cout << "===== Not Found Selected Index =====\n" << endl;
