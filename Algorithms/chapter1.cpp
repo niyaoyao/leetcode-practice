@@ -39,7 +39,7 @@ double ny_abs(double x) {
 double ny_sqrt(double c) {
 	if (c < 0)
 	{
-		return -1/0;
+		return 0;
 	} 
 	double error = 0.000000000000001;
 	double t = c;
@@ -56,7 +56,7 @@ double ny_hypotenuse(double a, double b) {
 
 
 
-int ny_rank(int key, std::vector<int> &v, int low, int high) {
+int ny_rank(int key, std::vector<double> &v, int low, int high) {
 	if (low > high)
 	{
 		return -1;
@@ -73,6 +73,6 @@ int ny_rank(int key, std::vector<int> &v, int low, int high) {
 	}
 }
 
-int ny_rank(int key, std::vector<int> &v) {
+int ny_rank(int key, std::vector<double> &v) {
 	return ny_rank(key, v, 0, v.size() - 1);
 }
