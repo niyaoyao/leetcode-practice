@@ -373,3 +373,81 @@ string longestPalindrome(string s) {
 	string result;
 	return  result;
 }
+
+
+int Solution::maxScore(string s) {
+    int maxScore = 0;
+    int leftScore = 0;
+    int leftOneCount = 0;
+    int rightScore = 0;
+    int zeroCount = 0;
+    int oneCount = 0;
+    char one = '1';
+    char zero = '0';
+
+    printf("1:%d 0:%d \n", one, zero);
+    for (int i = 0; i < s.length(); ++i)
+    {
+        printf("%c\t", s[i]);
+        char c = s[i];
+        if (c == zero)
+        {
+            zeroCount++;
+        } else if (c == one) {
+            oneCount++;
+        }
+
+    }
+    printf("\nCount one:%d zero:%d \n", oneCount, zeroCount);
+
+    int leftStringCount, rightStringCount = 0;
+
+    for (int i = 0; i < s.length(); ++i)
+    {
+        char c = s[i];
+
+        if (c == zero)
+        {
+            leftScore++;  
+            leftStringCount++;     
+        } else if (c == one) {
+            leftOneCount++;
+        }
+        leftStringCount = i + 1;
+        rightStringCount = s.length() - leftStringCount;
+        int currentScore = 0;
+        if ((leftStringCount > 0 && leftStringCount < s.length()) || (rightStringCount > 0 && rightStringCount < s.length()))
+        {
+            rightScore = oneCount - leftOneCount;
+            int currentScore = leftScore + rightScore;
+            maxScore = currentScore > maxScore ? currentScore : maxScore;
+        }
+        printf("current:%c leftScore:%d rightScore:%d leftOneCount:%d currentScore:%d maxScore:%d leftString:%d right:%d \n", s[i], leftScore, rightScore, leftOneCount, currentScore, maxScore, leftStringCount, rightStringCount);
+    }
+
+    return maxScore;
+}
+
+int Solution::singleNumber(vector<int>& nums) {
+    int result;
+    std::map<int, int> charMap;
+    for (std::vector<int>::iterator i = nums.begin(); i != nums.end(); ++i)
+    {
+        if (!charMap[*i])
+        {
+            charMap[*i] = 1;
+        } else {
+            charMap[*i] += 1;
+        }
+    }
+
+
+    for (auto &v : charMap) {
+        if (v.second == 1)
+        {
+            result = v.first;
+        }
+    }
+
+    return result;
+}

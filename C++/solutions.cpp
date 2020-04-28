@@ -104,15 +104,30 @@ void minimumAbsDifference(Solution s) {
     v.push_back(-14);
     v.push_back(27);
 //[40,11,26,27,-20]
-    v.push_back(40);
-    v.push_back(11);
-    v.push_back(26);
-    v.push_back(27);
-    v.push_back(-20);
+    // v.push_back(40);
+    // v.push_back(11);
+    // v.push_back(26);
+    // v.push_back(27);
+    // v.push_back(-20);
 
 
 
     s.minimumAbsDifference(v);
+}
+
+void maximumScoreAfterSplittingString(Solution s) {
+    string str = "011101";
+    cout << "Result:" << s.maxScore(str) << endl;
+}
+
+void singleNumber(Solution s) {
+    std::vector<int> v; //arr = [3,8,-10,23,19,-4,-14,27]
+    v.push_back(4);
+    v.push_back(1);
+    v.push_back(2);
+    v.push_back(1);
+    v.push_back(2);
+    cout << "Result:" << s.singleNumber(v) << endl;
 }
 
 void selectMenu() {
@@ -126,6 +141,9 @@ void selectMenu() {
     cout << "2. Add Two Numbers" << endl;
     cout << "3. Longest Substring Without Repeating Characters" << endl;
     cout << "4. Median of Two Sorted Arrays" << endl;
+    cout << "5. Minimum Absolute Difference" << endl;
+    cout << "6. Maximum Score After Splitting a String" << endl;
+    cout << "7. Single Number" << endl;
     cout << "\n==================================" << endl;
     
     cin >> index;
@@ -148,6 +166,18 @@ void selectMenu() {
         }
         case 4: {
             findMedianSortedArrays(s);
+            break;
+        }
+        case 5: {
+            minimumAbsDifference(s);
+            break;
+        }
+        case 6: {
+            maximumScoreAfterSplittingString(s);
+            break;
+        }
+        case 7: {
+            singleNumber(s);
             break;
         }
         default: {

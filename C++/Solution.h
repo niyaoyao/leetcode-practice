@@ -55,6 +55,8 @@ public:
     void sortArrayMinimum(TreeNode *t, std::vector<int> &v, int &min);
 
     vector<vector<int>> minimumAbsDifference(vector<int>& arr);
+    int maxScore(string s);
+    int singleNumber(vector<int>& nums);
 };
 
 #endif
