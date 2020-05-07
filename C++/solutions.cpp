@@ -130,6 +130,13 @@ void singleNumber(Solution s) {
     cout << "Result:" << s.singleNumber(v) << endl;
 }
 
+void isHappyNumber(Solution s) {
+    int n;
+    cout << "Input a Int Number:" << endl;
+    cin >> n;
+    cout << "Happy Number:\n" << s.isHappy(n) << endl;
+}
+
 void selectMenu() {
     Solution s = Solution();
     int index = -1;
@@ -144,6 +151,7 @@ void selectMenu() {
     cout << "5. Minimum Absolute Difference" << endl;
     cout << "6. Maximum Score After Splitting a String" << endl;
     cout << "7. Single Number" << endl;
+    cout << "8. Happy Number" << endl;
     cout << "\n==================================" << endl;
     
     cin >> index;
@@ -178,6 +186,10 @@ void selectMenu() {
         }
         case 7: {
             singleNumber(s);
+            break;
+        }
+        case 8: {
+            isHappyNumber(s);
             break;
         }
         default: {

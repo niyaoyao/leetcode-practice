@@ -1,5 +1,6 @@
 // Solution.cpp
 #include "Solution.h"
+#include <cmath>
 
 void printMap (std::map<char, int> stringMap) {
 	for (auto &v : stringMap) {
@@ -451,3 +452,31 @@ int Solution::singleNumber(vector<int>& nums) {
 
     return result;
 }
+
+bool Solution::isHappy(int n) {
+    cout << "n:" << n << endl;
+    std::map<int, int> numberMap;
+    while(n > 1 && numberMap[n] == 0) {
+        numberMap[n] = n;
+        n = perfectDigitalInvariant(n, 10);
+        cout << "number: " << n << endl;
+    }
+
+    return n == 1;
+}
+
+int Solution::perfectDigitalInvariant(int number, int base) {
+    int total = 0;
+    while(number > 0) {
+        total = total + pow(number % base, 2);
+        cout << "total:" << total << endl;
+        number = number / base;
+    }
+    return total;
+}
+
+int Solution::maxSubArray(vector<int>& nums) {
+    int sum = 0;
+    return sum;
+}
+

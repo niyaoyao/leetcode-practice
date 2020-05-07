@@ -57,6 +57,11 @@ public:
     vector<vector<int>> minimumAbsDifference(vector<int>& arr);
     int maxScore(string s);
     int singleNumber(vector<int>& nums);
+
+    int perfectDigitalInvariant(int number, int base);
+    bool isHappy(int n);
+    
+    int maxSubArray(vector<int>& nums);
 };
 
 #endif
