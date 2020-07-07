@@ -477,6 +477,64 @@ int Solution::perfectDigitalInvariant(int number, int base) {
 
 int Solution::maxSubArray(vector<int>& nums) {
     int sum = 0;
-    return sum;
+    int max = nums.at(0);
+
+    for (std::vector<int>::iterator i = nums.begin(); i != nums.end(); ++i)
+    {
+
+        max = *i > max ? *i : max;
+        cout << "max:" << max << endl;
+    }
+    return max;
 }
 
+
+vector<int> Solution::shuffle(vector<int>& nums, int n) {
+    int i = 0;
+    int j = i + n;
+    std::vector<int> v;
+    while(v.size() < 2 * n) {
+        v.push_back(nums[i]);
+        j = i + n;
+        v.push_back(nums[j]);
+        ++i;
+    }
+    return v;
+}
+
+ListNode* Solution::reverseList(ListNode* head) {
+    cout << "h:" << head->val << endl;
+    ListNode *result = NULL;
+    ListNode *p = head;
+    ListNode *q = p;
+    ListNode *l = NULL;
+    cout << "p:" << p << endl;
+
+    std::stack<int> temp;
+    while(p != NULL) {
+    cout << "p->v:" << p->val << endl;
+        cout << p->val << endl;
+        temp.push(p->val);
+        q = p;
+        p = p->next;
+    }
+
+    while(!temp.empty()) {
+        cout << temp.top() << endl;
+        if (result == NULL)
+        {
+            /* code */
+            result = new ListNode(temp.top());
+            p = result;
+            q = result;
+        } else {
+            l = new ListNode(temp.top());
+            p->next = l;
+            q = p;
+            p = p->next;
+
+        }
+        temp.pop();
+    }
+    return result;
+}

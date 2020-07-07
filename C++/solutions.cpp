@@ -137,6 +137,62 @@ void isHappyNumber(Solution s) {
     cout << "Happy Number:\n" << s.isHappy(n) << endl;
 }
 
+void maximumSubarray(Solution s) {
+    std::vector<int> v; //arr = [-2,1,-3,4,-1,2,1,-5,4]
+    // v.push_back(-2);
+    // v.push_back(1);
+    // v.push_back(-3);
+    // v.push_back(4);
+    // v.push_back(-1);
+    // v.push_back(2);
+    // v.push_back(1);
+    // v.push_back(-5);
+    // v.push_back(4);
+
+    // v.push_back(-2);
+    // v.push_back(-1);
+    // [8,-19,5,-4,20]
+    v.push_back(8);
+    v.push_back(-19);
+    v.push_back(5);
+    v.push_back(-4);
+    v.push_back(20);
+
+
+    s.maxSubArray(v);
+}
+
+void shuffleArray(Solution s) {
+    std::vector<int> v; // [1,2,3,4,4,3,2,1]
+    v.push_back(1);
+    v.push_back(1);
+    v.push_back(2);
+    v.push_back(2);
+    
+    std::vector<int> result = s.shuffle(v, v.size() / 2);
+    for(std::vector<int>::iterator i = result.begin(); i != result.end(); ++i) {
+        cout << *i << " ";
+    }
+    cout << "\nEnd\n" << endl;
+}
+
+void reverseList(Solution s) {
+    ListNode *l0 = new ListNode(2);
+    ListNode *l1 = new ListNode(4);
+    ListNode *l2 = new ListNode(3);
+
+    l0->next = l1;
+    l1->next = l2;
+    cout <<  "l0: " << l0->val << endl;
+    // ListNode *l3 = new ListNode(5);
+    // ListNode *l4 = new ListNode(6);
+    // ListNode *l5 = new ListNode(4);
+    
+    // l3->next = l4;
+    // l4->next = l5;   
+    s.reverseList(l0);
+}
+
 void selectMenu() {
     Solution s = Solution();
     int index = -1;
@@ -152,6 +208,8 @@ void selectMenu() {
     cout << "6. Maximum Score After Splitting a String" << endl;
     cout << "7. Single Number" << endl;
     cout << "8. Happy Number" << endl;
+    cout << "9. Maximum Subarray" << endl;
+    cout << "10. Shuffle Array" << endl;
     cout << "\n==================================" << endl;
     
     cin >> index;
@@ -190,6 +248,18 @@ void selectMenu() {
         }
         case 8: {
             isHappyNumber(s);
+            break;
+        }
+        case 9: {
+            maximumSubarray(s);
+            break;
+        }
+        case 10: {
+            shuffleArray(s);
+            break;
+        }
+        case 11: {
+            reverseList(s);
             break;
         }
         default: {

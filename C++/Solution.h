@@ -6,6 +6,7 @@
 #include <vector>
 #include <set>
 #include <string>
+#include <stack>
 
 using namespace std;
 
@@ -20,7 +21,22 @@ struct TreeNode
 struct ListNode {
     int val;
     ListNode *next;
+    ListNode() : val(0), next(NULL) {}
     ListNode(int x) : val(x), next(NULL) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
+class Node {
+public:
+    int val;
+    Node* next;
+    Node* random;
+    
+    Node(int _val) {
+        val = _val;
+        next = NULL;
+        random = NULL;
+    }
 };
 
 class Solution {
@@ -62,6 +78,8 @@ public:
     bool isHappy(int n);
     
     int maxSubArray(vector<int>& nums);
+    vector<int> shuffle(vector<int>& nums, int n);
+    ListNode* reverseList(ListNode* head);
 };
 
 #endif
