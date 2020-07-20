@@ -193,6 +193,44 @@ void reverseList(Solution s) {
     s.reverseList(l0);
 }
 
+void copyRandomList(Solution s) {
+    // head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
+    Node *n0 = new Node(7);
+    Node *n1 = new Node(13);
+    Node *n2 = new Node(11);
+    Node *n3 = new Node(10);
+    Node *n4 = new Node(1);
+
+    n0->next = n1;
+    n1->next = n2;
+    n2->next = n3;
+    n3->next = n4;
+    n4->next = NULL;
+
+    n1->random = n0;
+    n2->random = n4;
+    n3->random = n2;
+    n4->random = n0;
+    // [[3,null],[3,0],[3,null]]
+    // Node *n0 = new Node(3);
+    // Node *n1 = new Node(3);
+    // Node *n2 = new Node(3);
+
+    // n0->next = n1;
+    // n1->next = n2;
+
+    // n1->random = n0;
+    s.copyRandomList(n0);
+}
+
+void maximumLengthConcatenatedStringwithUniqueCharacters(Solution s) {
+    std::vector<string> arr; // Input: arr = ["un","iq","ue"]
+    arr.push_back("un");
+    arr.push_back("iq");
+    arr.push_back("ue");
+    s.maxLength(arr);
+}
+
 void selectMenu() {
     Solution s = Solution();
     int index = -1;
@@ -204,12 +242,15 @@ void selectMenu() {
     cout << "2. Add Two Numbers" << endl;
     cout << "3. Longest Substring Without Repeating Characters" << endl;
     cout << "4. Median of Two Sorted Arrays" << endl;
-    cout << "5. Minimum Absolute Difference" << endl;
-    cout << "6. Maximum Score After Splitting a String" << endl;
-    cout << "7. Single Number" << endl;
-    cout << "8. Happy Number" << endl;
-    cout << "9. Maximum Subarray" << endl;
-    cout << "10. Shuffle Array" << endl;
+    cout << "1200. Minimum Absolute Difference" << endl;
+    cout << "1422. Maximum Score After Splitting a String" << endl;
+    cout << "136. Single Number" << endl;
+    cout << "202. Happy Number" << endl;
+    cout << "53. Maximum Subarray" << endl;
+    cout << "1470. Shuffle the Array " << endl;
+    cout << "206. Reverse Linked List  " << endl;
+    cout << "138. Copy List with Random Pointer" << endl;
+    cout << "1239. Maximum Length of a Concatenated String with Unique Characters" << endl;
     cout << "\n==================================" << endl;
     
     cin >> index;
@@ -234,32 +275,40 @@ void selectMenu() {
             findMedianSortedArrays(s);
             break;
         }
-        case 5: {
+        case 1200: {
             minimumAbsDifference(s);
             break;
         }
-        case 6: {
+        case 1422: {
             maximumScoreAfterSplittingString(s);
             break;
         }
-        case 7: {
+        case 136: {
             singleNumber(s);
             break;
         }
-        case 8: {
+        case 202: {
             isHappyNumber(s);
             break;
         }
-        case 9: {
+        case 53: {
             maximumSubarray(s);
             break;
         }
-        case 10: {
+        case 1470: {
             shuffleArray(s);
             break;
         }
-        case 11: {
+        case 206: {
             reverseList(s);
+            break;
+        }
+        case 138: {
+            copyRandomList(s);
+            break;
+        }
+        case 1239: {
+            maximumLengthConcatenatedStringwithUniqueCharacters(s);
             break;
         }
         default: {

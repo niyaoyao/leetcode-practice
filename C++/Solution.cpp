@@ -538,3 +538,81 @@ ListNode* Solution::reverseList(ListNode* head) {
     }
     return result;
 }
+
+Node* Solution::copyRandomList(Node* head) {
+    Node *p = head;
+    Node *q = NULL;
+    Node *result = NULL;
+    Node *l = NULL;
+    Node *m = NULL;
+    Node *n = NULL;
+
+    std::vector<Node *> randomNodes;
+    std::vector<Node *> copiedNodes;
+    std::map<Node *, int> nodeIndex;
+    std::vector<int> randomNodeIndex;
+
+    int i = 0;
+
+    while(p != NULL) {
+        int v = p->val;
+        nodeIndex[p] = i+1;
+        randomNodes.push_back(p->random);
+        cout <<"\np: " << p << " p->val: " << v << " p->random: " << p->random << endl;
+        q = p;
+        p = p->next;
+
+        // cout << "\n\ncreate copy list:" << endl;
+        if (i == 0) {
+            result = new Node(v);
+            m = result;
+            copiedNodes.push_back(result);
+        } else {
+            l = new Node(v);
+            m->next = l;
+            n = m;
+            m = m->next;
+            copiedNodes.push_back(l);
+        }
+
+        ++i;
+    }
+
+    for (std::vector<Node *>::iterator it = randomNodes.begin(); it != randomNodes.end(); ++it) {
+        int index = -1;
+        if (nodeIndex[*it] > 0) {
+            index = nodeIndex[*it] - 1;
+        }
+        randomNodeIndex.push_back(index);
+    }    
+    
+    // for (std::vector<int>::iterator it = randomNodeIndex.begin(); it != randomNodeIndex.end(); ++it) {
+    //     cout << "randomNodeIndex: " << *it << endl;
+    // }
+
+    p = result;
+    i = 0;
+    while (p != NULL) {
+        int index = randomNodeIndex[i];
+        p->random = index < 0 ? NULL : copiedNodes[index];
+        cout << "\n" << "result: " << p << " result->v: " << p->val << " result->random: "<< p->random << endl;
+        q = p;
+        p = p->next;
+        ++i;
+    }
+
+    return result;
+}
+
+int Solution::maxLength(vector<string>& arr) {
+    int maxL = 0;
+    string s = string();
+    cout << "s: " << s << "size:" << s.length() << endl;
+    for (std::vector<string>::iterator it = arr.begin(); it != arr.end(); it++ ) {
+        cout << *it << endl;
+        s = s + *it;
+    }
+    cout << "s: " << s << " size:" << s.length() << endl;
+
+    return maxL;
+}

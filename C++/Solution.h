@@ -80,6 +80,8 @@ public:
     int maxSubArray(vector<int>& nums);
     vector<int> shuffle(vector<int>& nums, int n);
     ListNode* reverseList(ListNode* head);
+    Node* copyRandomList(Node* head);
+    int maxLength(vector<string>& arr);
 };
 
 #endif
