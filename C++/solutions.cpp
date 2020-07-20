@@ -3,6 +3,7 @@
 #include <vector>
 #include <set>
 #include "Solution.h"
+#include <cmath>
 
 using namespace std;
 
@@ -231,6 +232,22 @@ void maximumLengthConcatenatedStringwithUniqueCharacters(Solution s) {
     s.maxLength(arr);
 }
 
+double binarySqrt(double n, double minimum, double maximum) {
+    double p = 1e-5;
+    double mid = (maximum + minimum) / 2.0;
+    if (fabs(mid * mid - n)> p) {
+        if (mid * mid < n)
+        {
+            return binarySqrt(n, mid, maximum);
+        } else if (mid * mid > n) {
+            return binarySqrt(n, minimum, mid);
+        } else {
+            return mid;
+        }
+    }
+    return mid;
+}
+
 void selectMenu() {
     Solution s = Solution();
     int index = -1;
@@ -309,6 +326,15 @@ void selectMenu() {
         }
         case 1239: {
             maximumLengthConcatenatedStringwithUniqueCharacters(s);
+            break;
+        }
+        case 9999: {
+            cout << "Please Input Number:" << endl;
+            double n = -1;
+            cin >> n;
+            double min = 0.0;
+            double max = n;
+            cout <<"sqrt:" << binarySqrt(n, min, max) << endl;
             break;
         }
         default: {
